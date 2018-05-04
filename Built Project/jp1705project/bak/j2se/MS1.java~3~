@@ -1,0 +1,6 @@
+package j2se;
+
+public interface MS1 {
+    public int getDetail(Person p);
+    public int getDetailOfList(Person p);
+}

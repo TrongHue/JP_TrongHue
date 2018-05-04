@@ -1,0 +1,6 @@
+package jsoft.ads.article.category;
+import jsoft.objects.*;
+import java.sql.*;
+
+public interface Category {
+}

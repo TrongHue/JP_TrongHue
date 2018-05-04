@@ -1,0 +1,288 @@
+package jsoft.ads.user;
+
+import java.sql.*;
+import jsoft.*;
+import jsoft.ads.basic.*;
+import jsoft.objects.*;
+
+public class UserImpl extends BasicImpl implements User {
+    public UserImpl(ConnectionPool cp) {
+        super(cp, "User");
+    }
+
+    /**
+     * addUser
+     *
+     * @param item UserObject
+     * @return boolean
+     * @todo Implement this jsoft.ads.user.User method
+     */
+    public boolean addUser(UserObject item) {
+
+        if(this.isExisting(item)){
+            return false;
+        }
+
+        String sql = "INSERT INTO tbluser(";
+        sql += "user_name,";
+        sql += "user_pass,user_fullname,";
+        sql += "user_birthday,user_mobilephone,";
+        sql += "user_homephone,user_officephone,";
+        sql += "user_email,user_address,";
+        sql += "user_jobarea,user_job,";
+        sql += "user_position,user_applyyear,";
+        sql += "user_permission,user_notes,";
+        sql += "user_roles,user_logined";
+        sql += ")";
+        sql += " VALUES(?,MD5(?),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        //bien dich cau lenh
+        try {
+            PreparedStatement pre = this.con.prepareStatement(sql);
+            //truyen gia tri
+            pre.setString(1,item.getUser_name());
+            pre.setString(2,item.getUser_pass());
+            pre.setString(3,item.getUser_fullname());
+            pre.setString(4,item.getUser_birthday());
+            pre.setString(5,item.getUser_mobilephone());
+            pre.setString(6,item.getUser_homephone());
+            pre.setString(7,item.getUser_officephone());
+            pre.setString(8,item.getUser_email());
+            pre.setString(9,item.getUser_address());
+            pre.setString(10,item.getUser_jobarea());
+            pre.setString(11,item.getUser_job());
+            pre.setString(12,item.getUser_position());
+            pre.setShort(13,item.getUser_applyyear());
+            pre.setByte(14,item.getUser_permission());
+            pre.setString(15,item.getUser_notes());
+            pre.setString(16,item.getUser_roles());
+            pre.setShort(17,item.getUser_logined());
+
+            return this.add(pre);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            try {
+                this.con.rollback();
+            } catch (SQLException ex1) {
+                ex1.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    private boolean isExisting(UserObject item){
+        boolean flag = false;
+
+        String sql = "select user_id from tbluser where";
+        sql += " user_name='"+item.getUser_name()+"'";
+
+        ResultSet rs = this.gets(sql);
+
+        if(rs!=null){
+            try {
+                if (rs.next()) {
+                    flag = true;
+                }
+                rs.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return flag;
+    }
+
+    /**
+     * delUser
+     *
+     * @param item UserObject
+     * @return boolean
+     * @todo Implement this jsoft.ads.user.User method
+     */
+    public boolean delUser(UserObject item) {
+
+        if(this.checkRoles(item)){
+            return false;
+        }
+
+        String sql = "DELETE FROM tbluser WHERE user_id=? ";
+        try {
+            PreparedStatement pre = this.con.prepareStatement(sql);
+            pre.setInt(1,item.getUser_id());
+            return this.del(pre);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            try {
+                this.con.rollback();
+            } catch (SQLException ex1) {
+                ex1.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+
+    private boolean checkRoles(UserObject item){
+        boolean flag = false;
+
+        String sql = "select section_id from tblsection where ";
+        sql += "section_manager_id = ?";
+
+        ResultSet rs = this.get(sql,item.getUser_id());
+        if(rs!=null){
+            try {
+                if (rs.next()) {
+                    flag = true;
+                }
+                rs.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return flag;
+    }
+
+
+    /**
+     * editUser
+     *
+     * @param item UserObject
+     * @return boolean
+     * @todo Implement this jsoft.ads.user.User method
+     */
+    public boolean editUser(UserObject item) {
+        String sql = "UPDATE tbluser SET ";
+      sql += "user_pass=MD5(?),user_fullname=?,";
+      sql += "user_birthday=?,user_mobilephone=?,";
+      sql += "user_homephone=?,user_officephone=?,";
+      sql += "user_email=?,user_address=?,";
+      sql += "user_jobarea=?,user_job=?,";
+      sql += "user_position=?,user_applyyear=?,";
+      sql += "user_permission=?,user_notes=?,";
+      sql += "user_roles=? ";
+      sql += "WHERE user_id =?";
+
+      //bien dich cau lenh
+      try {
+          PreparedStatement pre = this.con.prepareStatement(sql);
+          //truyen gia tri
+          pre.setString(1,item.getUser_pass());
+          pre.setString(2,item.getUser_fullname());
+          pre.setString(3,item.getUser_birthday());
+          pre.setString(4,item.getUser_mobilephone());
+          pre.setString(5,item.getUser_homephone());
+          pre.setString(6,item.getUser_officephone());
+          pre.setString(7,item.getUser_email());
+          pre.setString(8,item.getUser_address());
+          pre.setString(9,item.getUser_jobarea());
+          pre.setString(10,item.getUser_job());
+          pre.setString(11,item.getUser_position());
+          pre.setShort(12,item.getUser_applyyear());
+          pre.setByte(13,item.getUser_permission());
+          pre.setString(14,item.getUser_notes());
+          pre.setString(15,item.getUser_roles());
+          pre.setInt(16,item.getUser_id());
+
+          return this.edit(pre);
+
+      } catch (SQLException ex) {
+          ex.printStackTrace();
+          try {
+              this.con.rollback();
+          } catch (SQLException ex1) {
+              ex1.printStackTrace();
+          }
+      }
+
+        return false;
+    }
+
+    /**
+     * getUser
+     *
+     * @param id int
+     * @return ResultSet
+     * @todo Implement this jsoft.ads.user.User method
+     */
+    public ResultSet getUser(int id) {
+        String sql = "SELECT * FROM  tbluser WHERE user id =? ";
+        return this.get(sql, id);
+    }
+
+    /**
+     * getUsers
+     *
+     * @param similar UserObject
+     * @param at int
+     * @param total byte
+     * @return ResultSet
+     * @todo Implement this jsoft.ads.user.User method
+     */
+    public ResultSet getUsers(UserObject similar, int at, byte total) {
+        String sql = "SELECT * FROM tbluser ORDER BY user_name ASC LIMIT ";
+        sql += at + "," + total;
+
+        return this.gets(sql);
+    }
+
+    /**
+     * getuser
+     *
+     * @param username String
+     * @param userpass String
+     * @return ResultSet
+     * @todo Implement this jsoft.ads.user.User method
+     */
+    public ResultSet getuser(String username, String userpass) {
+        String sql = "SELECT * FROM tbluser WHERE ";
+        sql += "(user_name=?) AND (user_pass=MD5(?))";
+        return this.get(sql, username, userpass);
+    }
+
+    public static void main(String[] args) {
+        // Tao bo quan li ket noi
+        ConnectionPool cp = new ConnectionPoolImpl();
+
+        //tao doi tuong thuc thi chuc nang;
+        User u = new UserImpl(cp);
+
+        //tao doi tuong luu tru thong tin
+        UserObject nUser = new UserObject();
+        nUser.setUser_id((short)20);
+        nUser.setUser_fullname("Nguyen Trong Hue");
+        nUser.setUser_email("syntax23sign@gmail.com");
+        nUser.setUser_address("Tp. Ha Noi");
+        nUser.setUser_name("TrongHue");
+        nUser.setUser_pass("12");
+
+        //Thuc hien them moi
+        boolean result = u.delUser(nUser);
+
+        //kiem tra ket qua
+        if(!result){
+            System.out.println("Khong thanh cong!!!");
+        }
+
+        //lay danh sach nguoi su dung
+        ResultSet rs = u.getUsers(null, 0, (byte) 15);
+        String row;
+        // duyet va hien thi ket qua
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    row = "ID: " + rs.getInt("user_id");
+                    row += "\tNAME: " + rs.getString("user_name");
+                    row += "\tFULL NAME: " + rs.getString("user_fullname");
+                    row += "\tPASS: " + rs.getString("user_pass");
+
+                    System.out.println(row);
+
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+}

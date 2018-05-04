@@ -1,0 +1,33 @@
+package jsoft.ads.user;
+
+import jsoft.objects.*;
+import java.util.*;
+
+public class UserLibrary {
+    public UserLibrary() {
+    }
+
+    public String viewUsers(ArrayList<UserObject> items) {
+        String tmp = "";
+        int no = 0;
+
+        for (UserObject item : items) {
+            tmp += "<tr>";
+            tmp += "<td>STT</td>";
+            tmp += "<td>"+item.getUser_name()+"</td>";
+            tmp += "<td></td>";
+            tmp += "<td></td>";
+            tmp += "<td></td>";
+            tmp += "<td></td>";
+            tmp += "<td></td>";
+            tmp += "<td></td>";
+            tmp += "<tr>";
+        }
+
+        return tmp;
+    }
+
+    public static void main(String[] args) {
+        UserLibrary userlibrary = new UserLibrary();
+    }
+}

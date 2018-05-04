@@ -1,0 +1,64 @@
+﻿<!-- Thiết kế giao diện nhà cung cấp -->
+<html>
+	<head>
+		<title>Quản lý nhà cung cấp</title>
+		<link href="provider.css" rel="stylesheet" type="text/css" />
+		<script language="JavaScript" src="provider.js">
+		</script>
+	</head>
+	
+	<body>
+		<div class="providerView">
+			<form name="frmProvider" action="" method="">
+				<table cellspacing="0">
+					<tr> 
+						<th colspan="2">Cập nhật nhà cung cấp</th>
+					</tr>
+					
+					<tr>
+						<td class="lc">Ngày</td>
+						<td><input type="date" name="txtDate"/></td>
+					</tr>
+					
+					<tr>
+						<td class="lc">Tên nhà cung cấp</td>
+						<td><input type="text" name="txtName" placeholder="Nhập tên nhà cung cấp"/></td>
+					</tr>
+					
+					<tr>
+						<td class="lc">Logo</td>
+						<td><input type="file" name="txtImage"/></td>
+					</tr>
+					
+					<tr>
+						<td class="lc"> Mô tả nhà cung cấp </td>
+						<td>
+							<textarea name="txtDetail" rows="10" cols="70"></textarea>
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="lc">
+							<input type="checkbox" name="checkAgree" id="chkAgree" onclick="checkValidProvider(this.form)"/>
+						</td>
+						<td>
+							<label for="chkAgree">
+								Bạn có đồng ý các quy định?
+							</label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2" align="center">
+							<input name="login" type="button" value="Đăng ký" onkeyup="checkValidProvider(this.form)" disabled/>
+							<input type="button" value="Nhập lại"/>
+							<input type="button" value="Trở về"/>
+							<input type="button" value="Thoát"/>
+						</td>
+					</tr>
+					
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

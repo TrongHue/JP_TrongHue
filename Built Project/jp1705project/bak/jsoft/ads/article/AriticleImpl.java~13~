@@ -1,0 +1,56 @@
+package jsoft.ads.article;
+
+import jsoft.objects.*;
+import jsoft.ads.article.section.category.*;
+import jsoft.*;
+
+import java.sql.*;
+
+public class AriticleImpl extends CategoryImpl implements Article {
+    public AriticleImpl(ConnectionPool cp) {
+        super(cp,"Article");
+    }
+
+    public boolean addArticle(ArticleObject item) {
+        String sql = "INSERT INTO tblarticle(";
+       sql += "article_title,article_summary,";
+       sql += "article_content,article_created_date,";
+       sql += "article_last_modified,article_image,";
+       sql += "article_category_id,article_section_id,";
+       sql += "article_visited,article_author_name,";
+       sql += "article_enable,article_url_link,";
+       sql += "article_tag,article_title_en,";
+       sql += "article_summary_en,article_content_en,";
+       sql += "article_tag_en,article_fee,";
+       sql += "article_isfee,article_delete,";
+       sql += "article_deleted_date,article_restored_date,";
+       sql += "article_modified_author_name,article_author_permission,";
+       sql += "article_source,article_language,";
+       sql += "article_focus";
+       sql += ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+       PreparedStatement pre = this.con.prepareStatement(sql);
+
+        return false;
+    }
+
+    public boolean editArticle(ArticleObject item) {
+        return false;
+    }
+
+    public boolean delArticle(ArticleObject item) {
+        return false;
+    }
+
+    public ResultSet getArticle(int id) {
+        return null;
+    }
+
+    public ResultSet getArticles(ArticleObject similar, int at, byte total) {
+        return null;
+    }
+
+    public static void main(String[] args){
+
+    }
+}

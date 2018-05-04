@@ -1,0 +1,63 @@
+﻿/* Xu ly dinh dang cho layout.html */
+@import url('basic.css');
+
+.main{
+    width: 1080px;
+    height: auto;
+    margin: 15px auto;
+}
+
+.logo{
+    width: 40%;
+    height: 60px;
+    background-color: red;
+    float: left;
+}
+
+.acc{
+    width: 50%;
+    height: 60px;
+    background-color: #ccc;
+    float: right;
+}
+
+.acc h3{
+    font: bold 12px tahoma;
+    padding: 6px;
+    margin-bottom: 10px;
+    background: #666;
+    color: #fff;
+}
+
+.menu{
+    width: 18%;
+    height: auto;
+    background: #333;
+    float: left;
+    margin: 20px 0px;
+}
+
+.menu h3{
+    font: normal 12px tahoma;
+    color: #fff;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #666;
+}
+
+.menu h3:hover{
+    background: #666;
+}
+
+.view{
+    width: 80%;
+    height: 500px;
+    background: #ddd;
+    float: right;
+    margin: 20px 0px;
+}
+
+.footer{
+    height: 120px;
+    background: #bbb;
+}

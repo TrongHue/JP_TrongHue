@@ -1,0 +1,105 @@
+package jsoft.ads.article;
+
+import java.sql.*;
+import jsoft.*;
+import jsoft.objects.*;
+
+import java.util.*;
+import jsoft.ads.article.*;
+
+public class ArticleModel {
+
+    private Article a;
+    public ArticleModel(ConnectionPool cp) {
+       a = new ArticleImpl(cp);
+    }
+
+    protected void finalize() throws Throwable {
+        this.a = null;
+        super.finalize();
+    }
+
+    public ConnectionPool getCP() {
+        return this.a.getCP();
+    }
+    public void releaseConnetion() {
+        this.a.releaseConnetion();
+    }
+
+
+    public boolean addArticle(ArticleObject c) {
+        return this.a.addArticle(c);
+    }
+
+
+    public boolean delArticle(ArticleObject c) {
+        return this.a.delArticle(c);
+    }
+
+    public boolean editArticle(ArticleObject c) {
+        return this.a.editArticle(c);
+    }
+
+    public ArticleObject getArticle(short id) {
+        ArticleObject item = null;
+
+        ResultSet rs = this.a.getArticle(id);
+        if (rs != null) {
+            try {
+                if (rs.next()) {
+                    item = new ArticleObject();
+                    item.setArticle_id(rs.getShort("article_id"));
+                    item.setArticle_title(rs.getString("article_title"));
+                    item.setArticle_content(rs.getString("article_content"));
+                    item.setArticle_image(rs.getString("article_image"));
+                    item.setArticle_summary(rs.getString("article_summary"));
+                    item.setArticle_restored_date(rs.getString("article_delete"));
+                    item.setSection_name(rs.getString("section_name"));
+                    item.setCategory_name(rs.getString("category_name"));
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return item;
+    }
+
+    public ArrayList getCategories(ArticleObject similar, short page,
+                                   byte total) {
+        ArrayList items = new ArrayList();
+        ArticleObject item = null;
+
+        int at = (page - 1) * total;
+        System.out.print(at);
+        ResultSet rs = this.a.getArticles(similar, at, total);
+
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    item = new ArticleObject();
+                    item.setArticle_id(rs.getShort("article_id"));
+                    item.setArticle_title(rs.getString("article_title"));
+                   // item.setArticle_content(rs.getString("article_content"));
+                    item.setArticle_image(rs.getString("article_image"));
+                   // item.setArticle_summary(rs.getString("article_summary"));
+                    item.setArticle_restored_date(rs.getString("article_delete"));
+                    item.setSection_name(rs.getString("section_name"));
+                    item.setCategory_name(rs.getString("category_name"));
+                    items.add(item);
+                }
+                rs.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return items;
+
+    }
+
+    public static void main(String[] args) {
+
+    }
+}
+

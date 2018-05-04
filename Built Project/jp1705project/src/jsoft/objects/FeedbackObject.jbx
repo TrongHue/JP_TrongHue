@@ -1,0 +1,17 @@
+[PropertyInfo]
+feedback_id,int,false,false,feedback_id,feedback_id,true,<default>
+feedback_title,String,false,false,feedback_title,feedback_title,true,<default>
+feedback_content,String,false,false,feedback_content,feedback_content,true,<default>
+feedback_fullname,String,false,false,feedback_fullname,feedback_fullname,true,<default>
+feedback_address,String,false,false,feedback_address,feedback_address,true,<default>
+feedback_email,String,false,false,feedback_email,feedback_email,true,<default>
+feedback_phone,String,false,false,feedback_phone,feedback_phone,true,<default>
+feedback_product_id,int,false,false,feedback_product_id,feedback_product_id,true,<default>
+feedback_created_date,String,false,false,feedback_created_date,feedback_created_date,true,<default>
+feedback_view,boolean,false,false,feedback_view,feedback_view,true,<default>
+feedback_company,String,false,false,feedback_company,feedback_company,true,<default>
+[IconNames]
+
+
+
+

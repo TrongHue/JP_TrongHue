@@ -1,0 +1,245 @@
+package jsoft.ads.article;
+
+import java.sql.*;
+
+import jsoft.objects.*;
+
+import jsoft.ads.*;
+
+import jsoft.ads.article.category.*;
+
+import jsoft.*;
+
+
+// Khac nhau o extends ArticleImpl khong phai Basic
+public class ArticleImpl extends CategoryImpl implements Article {
+    public ArticleImpl(ConnectionPool cp) {
+        super(cp,"Article");
+    }
+
+    /**
+     * addArticle
+     *
+     * @param item ArticleObject
+     * @return boolean
+     * @todo Implement this jsoft.ads.Article.Article.Article method
+     */
+    public boolean addArticle(ArticleObject item) {
+        if (this.isExisting(item)) {
+            return false;
+        }
+        String sql = "INSERT INTO tblarticle(";
+        sql += "article_title,article_summary,";
+        sql += "article_content,article_created_date,";
+        sql += "article_last_modified,article_image,";
+        sql += "article_category_id,article_section_id,";
+        sql += "article_visited,article_author_name,";
+        sql += "article_enable,article_url_link,";
+        sql += "article_tag,article_title_en,";
+        sql += "article_summary_en,article_content_en,";
+        sql += "article_tag_en,article_fee,";
+        sql += "article_isfee,article_delete,";
+        sql += "article_deleted_date,article_restored_date,";
+        sql += "article_modified_author_name,article_author_permission,";
+        sql += "article_source,article_language,article_focus";
+        sql += ")";
+        sql += " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        //bien dich cau lenh
+        try {
+            PreparedStatement pre = this.con.prepareStatement(sql);
+            //truyen gia tri
+            pre.setString(1, item.getArticle_title());
+            pre.setString(2, item.getArticle_summary());
+            pre.setString(3, item.article_content());
+            pre.setString(4, item.article_created_date());
+            pre.setString(5, item.article_last_modified());
+            pre.setString(6, item.article_image());
+            pre.setShort(7, item.article_category_id());
+            pre.setShort(8, item.article_section_id());
+            pre.setShort(9, item.article_visited());
+            pre.setString(10, item.article_author_name());
+            pre.setString(11, item.article_enable());
+            pre.setString(12, item.article_url_link());
+            pre.setByte(13, item.article_tag());
+            pre.setByte(14, item.article_title_en());
+            pre.setByte(15, item.article_summary_en());
+            pre.setByte(16, item.article_content_en());
+            pre.setByte(17, item.article_tag_en());
+            pre.setInt(18, item.article_fee());
+            pre.setBoolean(19, item.article_isfee());
+            pre.setBoolean(20, item.article_delete());
+            pre.setByte(21, item.article_deleted_date());
+            pre.setByte(22, item.article_restored_date());
+            pre.setByte(23, item.article_modified_author_name());
+            pre.setByte(24, item.article_author_permission());
+            pre.setByte(25, item.article_source());
+            pre.setByte(26, item.article_language());
+            pre.setByte(27, item.article_focus());
+            return this.add(pre);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            try {
+                this.con.rollback();
+            } catch (SQLException ex1) {
+                ex1.printStackTrace();
+            }
+        }
+        return false;
+
+    }
+
+    public boolean isExisting(ArticleObject item) {
+        boolean flag = false;
+
+        String sql = "SELECT Article_id FROM tblArticle ";
+        sql += "WHERE Article_name= '" + item.getArticle_name() + "'";
+        ResultSet rs = this.gets(sql);
+        if (rs != null) {
+            try {
+                if (rs.next()) {
+                    flag = true;
+                }
+                rs.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return flag;
+    }
+
+    /**
+     * delArticle
+     *
+     * @param item ArticleObject
+     * @return boolean
+     * @todo Implement this jsoft.ads.Article.Article.Article method
+     */
+    public boolean delArticle(ArticleObject item) {
+        String sql = "DELETE FROM tblArticle WHERE Article_id=?";
+        try {
+            PreparedStatement pre = this.con.prepareStatement(sql);
+            pre.setShort(1, item.getArticle_id());
+            return this.del(pre);
+        } catch (SQLException ex) {
+            try {
+                this.con.rollback();
+            } catch (SQLException ex1) {
+            }
+            ex.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public boolean checkRoles(ArticleObject item) {
+        boolean flag = false;
+        return flag;
+    }
+
+    /**
+     * editArticle
+     *
+     * @param item ArticleObject
+     * @return boolean
+     * @todo Implement this jsoft.ads.Article.Article.Article method
+     */
+    public boolean editArticle(ArticleObject item) {
+        if (this.isEmpty(item)) {
+            return false;
+        }
+        String sql = "UPDATE tblArticle SET ";
+        sql += "Article_name=?,Article_Article_id=?,";
+        sql += "Article_notes=?,";
+        sql += "Article_last_modified=?,";
+        sql += "Article_manager_id=?,Article_enable=?,";
+        sql += "Article_delete=?,Article_image=?,";
+        sql += "Article_name_en=?,Article_language=?,";
+        sql += "WHERE Article_id=?)";
+
+        //bien dich cau lenh
+        try {
+            PreparedStatement pre = this.con.prepareStatement(sql);
+            //truyen gia tri
+            pre.setString(1, item.getArticle_name());
+            pre.setShort(2, item.getArticle_Article_id());
+            pre.setString(3, item.getArticle_notes());
+            pre.setString(4, item.getArticle_last_modified());
+            pre.setInt(5, item.getArticle_manager_id());
+            pre.setBoolean(6, item.isArticle_enable());
+            pre.setBoolean(7, item.isArticle_delete());
+            pre.setString(8, item.getArticle_image());
+            pre.setString(9, item.getArticle_name_en());
+            pre.setByte(10, item.getArticle_language());
+            pre.setShort(11, item.getArticle_id());
+            return this.edit(pre);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            try {
+                this.con.rollback();
+            } catch (SQLException ex1) {
+                ex1.printStackTrace();
+            }
+        }
+        return false;
+
+    }
+
+    private boolean isEmpty(ArticleObject item) {
+        boolean flag = true;
+        String sql = "SELECT Article_id FROM tblArticle WHERE ";
+        sql += "Article_Article_id = ?";
+        ResultSet rs = this.get(sql, item.getArticle_id());
+        if (rs != null) {
+            try {
+                if (rs.next()) {
+                    flag = true;
+                }
+            } catch (SQLException ex) {
+            }
+            try {
+                rs.close();
+            } catch (SQLException ex1) {
+            }
+        }
+        return flag;
+    }
+
+
+    /**
+     * getArticle
+     *
+     * @param username String
+     * @param userpass String
+     * @return ResultSet
+     * @todo Implement this jsoft.ads.Article.Article.Article method
+     */
+    public ResultSet getArticle(short id) {
+        String sql = "select * from tblArticle ";
+        sql += "left join tblArticle on Article_Article_id = Article_id";
+        sql += " where Article_id = ?";
+        return this.get(sql, id);
+    }
+
+    /**
+     * getArticles
+     *
+     * @param similar ArticleObject
+     * @param at int
+     * @param total byte
+     * @return ResultSet
+     * @todo Implement this jsoft.ads.Article.Article.Article method
+     */
+    public ResultSet getCategories(ArticleObject similar, int at, byte total) {
+        String sql = "SELECT * FROM tblArticle ";
+        sql += "LEFT JOIN tblArticle ON tblArticle.Article_Article_id = tblArticle.Article_id ";
+        sql += "ORDER BY Article_name ASC ";
+        sql += "LIMIT " + at + "," + total;
+        return gets(sql);
+    }
+
+    public static void main(String[] args) {
+    }
+}

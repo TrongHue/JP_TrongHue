@@ -1,0 +1,12 @@
+package jsoft.ads.basic;
+import java.sql.*;
+
+public interface Basic {
+    public boolean add();
+    public boolean edit();
+    public boolean del();
+
+    public ResultSet get(int value);
+    public ResultSet get(String username,String userpass);
+    public ResultSet gets();
+}

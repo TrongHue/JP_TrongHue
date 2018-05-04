@@ -1,0 +1,19 @@
+package jsoft.ads.user;
+
+import jsoft.objects.*;
+import java.util.*;
+
+public class UserLibrary {
+    public UserLibrary() {
+    }
+
+    public String viewUsers(ArrayList<UserObject> items){
+        String tmp = "";
+
+        return tmp;
+    }
+
+    public static void main(String[] args) {
+        UserLibrary userlibrary = new UserLibrary();
+    }
+}

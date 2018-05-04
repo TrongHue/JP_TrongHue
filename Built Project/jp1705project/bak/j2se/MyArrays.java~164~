@@ -1,0 +1,227 @@
+package j2se;
+import java.util.*;
+
+/**
+ * <p>Title: jp1705</p>
+ *
+ * <p>Description: </p>
+ *
+ * <p>Copyright: Copyright (c) 2017</p>
+ *
+ * <p>Company: </p>
+ *
+ * @author Nguyen Trong Hue
+ * @version 1.0
+ */
+public class MyArrays {
+    public MyArrays() {
+    }
+    //sinh ngau nhien
+    public static int[] generateArray(int n) {
+        int[] arrInt = new int[n];
+        for (int i = 0; i < arrInt.length; i++) {
+            arrInt[i] = (int) (Math.random() * 100);
+        }
+        return arrInt;
+    }
+
+    public static int[][] generateArray(int row, int col){
+        int[][] arrInt = new int[row][col];
+        for(int i=0; i<row;i++){
+            arrInt[i] = MyArrays.generateArray(col);
+        }
+        return arrInt;
+    }
+
+    public static Person[] generatePeron(int n){
+        // mang doi tuong
+        Person[] list = new Person[n];
+        // danh sach ten
+        String[] firstNames = {
+        "Han","Ha","Tuan","Anh","Thuy","Hung","Hai",
+        "Hoang","Quang","Linh","My Linh","Tuyet Mai",
+        "Hue","Dinh","Binh","Thai Binh","Thai Cuong",
+        "Cuong","Luong","Hoa","Hoi","Hieu","Lan Anh","Hoang Hai"
+        };
+        String[] lastNames = {
+          "Hoang","Le","Tran","Pham","Nguyen Trong","Ngo",
+          "Quach","Van","Bui","Ho","Canh","Nguyen Thi"
+        };
+        // Sinh ngau nhien gia tri cho cac doi tuong
+        int index;
+        for(int i=0; i<n; i++){
+            // cap phat bo nho cho tung phan tu mang
+            list[i] = new Person();
+
+            // sinh ngau nhien ten
+            index = (int)(Math.random()*firstNames.length);
+            list[i].setFirstName(firstNames[index]);
+
+            // sinh ngau nhien ho
+            index = (int ) (Math.random()*lastNames.length);
+            list[i].setLastName(lastNames[index]);
+
+            //sinh ngau nhien tuoi
+            index = (int) (Math.random()*127);
+            list[i].setAge((byte)index);
+        }
+        return list;
+    }
+
+    // sap xep
+    public static int[] sortedArray(int[] arrInt, boolean isINC) {
+        // Xac dinh huong sap xep
+        int ori = isINC ? 1 : -1;
+        //Thuc hien sap xep
+        int tmp;
+        for (int i = 0; i < arrInt.length - 1; i++) {
+            for (int j = i; j < arrInt.length; j++) {
+                if (arrInt[i] * ori > arrInt[j] * ori) {
+                    tmp = arrInt[i];
+                    arrInt[i] = arrInt[j];
+                    arrInt[j] = tmp;
+                }
+            }
+        }
+        return arrInt;
+    }
+
+    public static int[][] sortedArray2(int[][] arrInt, boolean isINC) {
+        // Xac dinh huong sap xep
+        int ori = isINC ? 1 : -1;
+        //Thuc hien sap xep
+        int tmp;
+        for(int t = 0; t<arrInt.length; t++){
+                    for(int i=0; i<arrInt.length; i++){
+        for(int j=i;j<arrInt.length; j++){
+            if(arrInt[i][j]*ori<arrInt[i][j+1]*ori){
+                tmp = arrInt[i][j];
+                arrInt[i][j] = arrInt[i][j+1];
+                arrInt[i][j+1] = tmp;
+            }
+        }
+    }
+
+        }
+
+        return arrInt;
+    }
+
+
+    public static int[] filterArray(int[] arrInt, boolean isINC) {
+        // Sap xep truoc
+        arrInt = MyArrays.sortedArray(arrInt, true);
+        //Tach nguyen to va khong
+        int[] temp1 = new int[arrInt.length]; // Co nguyen to
+        int[] temp2 = new int[arrInt.length]; //Khong co nguyen to
+        int t1 = 0, t2 = 0;
+        for (int value : arrInt) {
+            if (Examples.checkValue(value)) {
+                temp1[t1++] = value;
+            }
+                else {
+                    temp2[t2++] = value;
+                }
+        }
+        // Ghep lai
+        for(int i=t1; i<temp1.length; i++){
+            temp1[i] = temp2[i-t1];
+        }
+        return temp1;
+    }
+
+    // print method group
+
+    public static Person[] searchPerson(Person[] list, String name){
+        // khai bao mang ket qua
+        Person[] results = null;
+
+        // dem so ket qua
+        int count = 0;
+        for(Person p:list){
+            if(p.getFirstName().contains(name)){
+                count++ ;
+            }
+        }
+        // khoi tao bo nho
+        results = new Person[count];
+
+        //ghi nhan ket qua
+        count = 0;
+        for(Person p:list){
+            if(p.getFirstName().contains(name))
+            results[count++] = p;
+        }
+
+        return results;
+    }
+
+    public static ArrayList searchPersonV2(Person[] list, String name){
+        ArrayList results = new ArrayList();
+        for(Person p:list){
+            if(p.getFirstName().contains(name)){
+                results.add(p);
+            }
+        }
+        return results;
+    }
+
+    // in
+    public static void printPerson(ArrayList persons){
+        Person p;
+        for(int i=0; i<persons.size(); i++){
+            p = (Person)persons.get(i);
+            System.out.print(p);
+        }
+    }
+
+    public static void printPersonV2(ArrayList<Person> list){
+        for(Person p: list){
+            System.out.println(p);
+        }
+    }
+
+    public static void printArray(int[] arrInt) {
+        /* for (int i = 0; i < arrInt.length; i++) {
+             System.out.print(arrInt[i] + " ");
+         }*/
+        for (int value : arrInt) {
+            System.out.print(value + " ");
+        }
+        System.out.println();
+    }
+
+    public static void printArray(int[][] arrInt)
+    {
+        for(int[] row: arrInt){
+            MyArrays.printArray(row);
+        }
+    }
+
+    public static void printPerson(Person[] list){
+        for(Person p: list){
+            System.out.println(p);
+        }
+    }
+
+    public static void main(String[] args) {
+        //Sinh mang
+        Person[] list = MyArrays.generatePeron(20);
+        //In mang
+        MyArrays.printPerson(list);
+
+        System.out.println("\n--------------------------\n");
+        //ArrayList result = MyArrays.searchPersonV2(list,"Hoang");
+        //MyArrays.printPersonV2(result);
+        int[][] arrs = MyArrays.generateArray(4,4);
+        MyArrays.printArray(arrs);
+        arrs = MyArrays.sortedArray2(arrs,true);
+        MyArrays.printArray(arrs);
+    }
+}
+
+/*
+ Bai tap ve mang 2 chieu:
+ B1: Sap xep theo 1 thu tu nao do cua mang 2 chieu
+ B2: Loc ra tat ca cac gia tri ma lon hon phan tu trung binh cua mang
+ */

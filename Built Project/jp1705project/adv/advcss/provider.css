@@ -1,0 +1,11 @@
+﻿/*Các xử lý định dạng cho provider.html*/
+
+@import url('basic.css');
+
+.providerView{
+	min-width:980px;
+	height:auto;
+	margin:0 auto;
+	background:#efffff;
+	border:1px solid #666;
+}

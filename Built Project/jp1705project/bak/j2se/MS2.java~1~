@@ -1,0 +1,4 @@
+package j2se;
+import java.util.*;
+public interface MS2 {
+}

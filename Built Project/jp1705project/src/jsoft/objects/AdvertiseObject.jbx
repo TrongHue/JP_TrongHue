@@ -1,0 +1,13 @@
+[PropertyInfo]
+advertise_id,int,false,false,advertise_id,advertise_id,true,<default>
+advertise_title,String,false,false,advertise_title,advertise_title,true,<default>
+advertise_url,String,false,false,advertise_url,advertise_url,true,<default>
+advertise_notes,String,false,false,advertise_notes,advertise_notes,true,<default>
+advertise_type,short,false,false,advertise_type,advertise_type,true,<default>
+advertise_display,short,false,false,advertise_display,advertise_display,true,<default>
+advertise_image,String,false,false,advertise_image,advertise_image,true,<default>
+[IconNames]
+
+
+
+

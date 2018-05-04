@@ -1,0 +1,31 @@
+package j2se;
+
+/**
+ * <p>Title: jp1705</p>
+ *
+ * <p>Description: </p>
+ *
+ * <p>Copyright: Copyright (c) 2017</p>
+ *
+ * <p>Company: </p>
+ *
+ * @author Nguyen Trong Hue
+ * @version 1.0
+ */
+public class TestPerson {
+    public TestPerson() {
+    }
+
+    public static void main(String[] args) {
+        // doi tuong dia chi
+        Address addr = new Address("Ha Noi", "Cat Que", "ko biet");
+        // tao doi tuong sinh vien
+        Student s = new Student("Hue", "Nguyen Trong", (byte) 21, addr,
+                               "0941360075", "KTPM");
+        Employer em = new Employer("Hue", "Nguyen Trong", (byte) 21, addr,
+                                   2000000000, "zzz");
+        System.out.println(s);
+        System.out.println(em);
+
+    }
+}

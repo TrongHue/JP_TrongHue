@@ -1,0 +1,93 @@
+package j2se;
+
+/**
+ * <p>Title: jp1705</p>
+ *
+ * <p>Description: </p>
+ *
+ * <p>Copyright: Copyright (c) 2017</p>
+ *
+ * <p>Company: </p>
+ *
+ * @author Nguyen Trong Hue
+ * @version 1.0
+ */
+public class Adress {
+    //Constances -1
+    public static final String CITYNAME = "No city name";
+    public static final String DISTRICTNAME = "No district name";
+    public static final String STREETNAME = "No street name";
+
+    //Object properties 0
+    private String cityName;
+    private String districtName;
+    private String streetName;
+
+
+    //Constructor method -2
+    public Adress() {
+        this(Adress.CITYNAME, Adress.DISTRICTNAME, Adress.STREETNAME);
+    }
+
+    public Adress(String cityName, String districtName, String streetName) {
+        this.cityName = cityName;
+        this.districtName = districtName;
+        this.streetName = streetName;
+    }
+
+    public Adress(Adress){
+        //type three
+    }
+
+    //Getter methods -3
+    public String getCityName() {
+        return this.cityName;
+    }
+
+    public String getDistrictName() {
+        return this.districtName;
+    }
+
+    public String getStreetName() {
+        return this.streetName;
+    }
+
+
+    //Setter methods -4
+    public Adress setCityName(String cityName) {
+        this.cityName = cityName;
+        return this;
+    }
+
+    public Adress setDistrictName(String districtName) {
+        this.districtName = districtName;
+        return this;
+    }
+
+    public Adress setStreetName(String streetName) {
+        this.streetName = streetName;
+        return this;
+    }
+
+
+    //Other method - 5
+    public String toString() {
+        return cityName + " " + districtName + " " + streetName;
+    }
+
+    protected void finalize() throws Throwable {
+        //Giam doi tuong
+        super.finalize();
+    }
+
+    public static void main(String[] args) {
+        Adress ad1 = new Adress();
+        ad1.setCityName("Ha noi").setDistrictName("Cat Que").setStreetName(
+                "Khong co");
+        Adress ad2 = new Adress();
+        Adress ad3 = new Adress("Ha Noi", "Cat Que", "Khong co");
+        System.out.println(ad1);
+        System.out.println(ad2);
+        System.out.println(ad3);
+    }
+}

@@ -1,0 +1,10 @@
+package jsoft.ads.user;
+
+public class UserLibrary {
+    public UserLibrary() {
+    }
+
+    public static void main(String[] args) {
+        UserLibrary userlibrary = new UserLibrary();
+    }
+}

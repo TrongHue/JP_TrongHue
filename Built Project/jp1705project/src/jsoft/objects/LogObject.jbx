@@ -1,0 +1,13 @@
+[PropertyInfo]
+log_id,int,false,false,log_id,log_id,true,<default>
+log_name,String,false,false,log_name,log_name,true,<default>
+log_user_permission,short,false,false,log_user_permission,log_user_permission,true,<default>
+log_date,String,false,false,log_date,log_date,true,<default>
+log_user_name,String,false,false,log_user_name,log_user_name,true,<default>
+log_action,short,false,false,log_action,log_action,true,<default>
+log_position,short,false,false,log_position,log_position,true,<default>
+[IconNames]
+
+
+
+

@@ -1,0 +1,10 @@
+﻿/*Định dạng cho user.html*/
+@import url("basic.css");
+
+.userView{
+	min-width:980px;
+	height:auto;
+	background:#efffff;
+	border: 1px solid #666;
+	margin: 0 auto;
+}

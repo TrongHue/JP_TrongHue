@@ -1,0 +1,293 @@
+﻿<!--Thiet ke nguyen mau giao dien logistic html-->
+<html>
+	<head>
+		<title> Nguyên mẫu logistic </title>
+		<link href="css/layout.css" rel="stylesheet" type="text/css"/>
+		<script language="JavaScript" src="js/gui.js"></script>
+		<script language="JavaScript" src="js/tooltip.js"></script>
+	</head>
+	
+	<body onload="setFirstTime(frmSearch)">
+		<div class="main">
+		
+			<div class="top">
+				<div class="search">
+					
+					<form name="frmSearch" method="" action="">
+						<input type="text" name="txtKeyword" size="30px" onclick="setKeyword(this.form,true)" onblur="setKeyword(this.form,false)"/><input type="button" value=">>" onclick="checkValidKeyword(this.form)"/>
+					</form>
+					
+				</div>
+				<div class="toplinks">
+					<a href="#">Dang nhap</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="#">Dang ky</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="#">Ho tro</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="#">Huong dan</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				</div>
+				
+				<div class="clr"></div>
+			</div> <!-- Close top -->
+		
+			<div class="header"></div><!-- Close header -->
+			<div class="menu">
+				<a href="#"><h3>Trang chủ</h3></a>
+				<a href="#"><h3>Giới thiệu</h3></a>
+				<a href="#"><h3>Tin tức</h3></a>
+				<a href="#"><h3>Sản phẩm</h3></a>
+				<a href="#"><h3>Dịch vụ</h3></a>
+				<a href="#"><h3>Tuyển dụng</h3></a>
+				<a href="#"><h3>Liên hệ</h3></a>
+				<a href="#"><h3>Khác</h3></a>
+			
+			</div><!-- Close menu -->
+			
+			<div class="content">
+				
+				<div class="view">
+				
+					<div class="intros">
+							<div class="slider-wrapper theme-default">
+							<div id="slider" class="nivoSlider">
+								<a href="#"><img src="pictures/intros/toystory.jpg" alt="" title="Giá xăng 'làm giá' đến bao giờ" height="300px"/></a>
+								<a href="#"><img src="pictures/intros/up.jpg"  alt=""  /></a>
+								<a href="#"><img src="pictures/intros/walle.jpg"  alt="" data-transition="slideInLeft" /></a>
+								<a href="#"><img src="pictures/intros/nemo.jpg" alt=""  /></a>
+							</div>
+							</div><!--End .slider-wrapper-->
+							<script language="javascript" type="text/javascript" src="js/jquery-1.7.1.min.js"></script> 
+							<script language="javascript" type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+							<script type="text/javascript">
+								$(window).load(function() {
+									$('#slider').nivoSlider();
+								});
+							</script>
+					</div><!-- Close intros -->
+					
+					<div class="focus">
+						<div class="f3">
+							<img src="pictures/mualu.jpg"  />
+							<a href="#"><h3>Sáu người chết, nhiều đê đập vỡ do mưa lũ</h3></a>
+						</div>
+						<div class="f3 fc">
+							<img src="pictures/ngatkhi.jpg"  />
+							<a href="#"><h3>Nhiều người ngất, vật nuôi chết vì ngạt khí độc ở Sài Gòn  </h3></a>
+						</div>
+						<div class="f3">
+							<img src="pictures/thunga.jpg"  />
+							<a href="#"><h3>Cựu đại biểu Thu Nga tiết lộ thỏa thuận 'trả' 320 ... </h3></a>
+						</div>
+						<div class="clr"></div>
+					</div><!-- Close focus -->
+					
+					<div class="sections">
+						<div class="sections-titles">
+						
+							<div class="ltab"></div>
+							<div class="ctab">
+								<a href="#"><h3>Giới thiệu</h3></a>
+							</div>
+							<div class="rtab"></div>
+						<div class="sections-titles-links">
+							<a href="#">Cổ đông</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+							<a href="#">Văn hóa </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+							<a href="#">Đội ngũ quản lý</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+							<a href="#">Lĩnh vực</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+						</div><!-- Close sections-titles -->
+
+						<div class="sections-contents">
+							<div class="sections-contents-left">
+								<img src="pictures/nguoimy.jpg"/>
+								<a><h3>Chuyện về một người Mỹ tha thiết tới Triều Tiên sau 52 lần nhập cảnh</h3></a>
+								<p>(Dân trí) - Một linh mục Công giáo người Mỹ, người từng tới Triều Tiên 52 lần để hỗ trợ thực hiện các hoạt động nhân đạo, nói rằng lệnh cấm công dân Mỹ mà chính quyền Tổng thống Donald Trump ban hành sẽ không ngăn cản được ông tiếp tục sứ mệnh từ thiện.</p>
+							</div>
+							
+							<div class="sections-contents-right">
+								<a href="#"><h3>Chương trình, SGK phổ thông mới: Lùi 1 năm chưa chắc đã kịp triển khai?</h3></a>
+								<a href="#"><h3>Ánh mắt đáng thương của bé 5 tuổi mắc bệnh phù chân voi</h3></a>
+								<a href="#"><h3>Ánh mắt đáng thương của bé 5 tuổi mắc bệnh phù chân voi</h3></a>
+								<a href="#"><h3>Cảnh sống lay lắt của gia đình có mẹ già bị suy tim, con gái bị ung thư</h3></a>
+								<a href="#"><h3>Chủ tịch VCCI: "Doanh nhân Việt đã dày dạn hơn trên thương trường"</h3></a>
+								<a href="#"><h3>Vũ công xinh đẹp khoe dáng rực lửa</h3></a>
+								
+								<span class="more"><a href="#">Xem tiếp</a></span>
+							</div>
+							<div class="clr"></div>
+						</div><!-- Close sections-contents -->
+						
+					</div><!-- Close sections -->
+					
+					<div class="sections">
+						<div class="sections-titles">
+						
+							<div class="ltab"></div>
+							<div class="ctab">
+								<a href="#"><h3>Giới thiệu</h3></a>
+							</div>
+							<div class="rtab"></div>
+						<div class="sections-titles-links">
+							<a href="#">Cổ đông</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+							<a href="#">Văn hóa </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+							<a href="#">Đội ngũ quản lý</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+							<a href="#">Lĩnh vực</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+						</div><!-- Close sections-titles -->
+
+						<div class="sections-contents">
+							<div class="sections-contents-left">
+								<img src="pictures/nguoimy.jpg"/>
+								<a><h3>Chuyện về một người Mỹ tha thiết tới Triều Tiên sau 52 lần nhập cảnh</h3></a>
+								<p>(Dân trí) - Một linh mục Công giáo người Mỹ, người từng tới Triều Tiên 52 lần để hỗ trợ thực hiện các hoạt động nhân đạo, nói rằng lệnh cấm công dân Mỹ mà chính quyền Tổng thống Donald Trump ban hành sẽ không ngăn cản được ông tiếp tục sứ mệnh từ thiện.</p>
+							</div>
+							
+							<div class="sections-contents-right">
+								<a href="#"><h3>Chương trình, SGK phổ thông mới: Lùi 1 năm chưa chắc đã kịp triển khai?</h3></a>
+								<a href="#"><h3>Ánh mắt đáng thương của bé 5 tuổi mắc bệnh phù chân voi</h3></a>
+								<a href="#"><h3>Ánh mắt đáng thương của bé 5 tuổi mắc bệnh phù chân voi</h3></a>
+								<a href="#"><h3>Cảnh sống lay lắt của gia đình có mẹ già bị suy tim, con gái bị ung thư</h3></a>
+								<a href="#"><h3>Chủ tịch VCCI: "Doanh nhân Việt đã dày dạn hơn trên thương trường"</h3></a>
+								<a href="#"><h3>Vũ công xinh đẹp khoe dáng rực lửa</h3></a>
+								
+								<span class="more"><a href="#">Xem tiếp</a></span>
+							</div>
+							<div class="clr"></div>
+						</div><!-- Close sections-contents -->
+						
+					</div><!-- Close sections -->
+					
+				</div> <!-- Close view -->
+				
+				<div class="rview">
+					<div class="titles">Tin tức mới</div>
+					<div class="news">
+						<a href="#" onmouseover="showtip(viewnews[0])" onmouseout="hidetip()">
+						<h3>
+							<img src="pictures/dongsongmau.jpg"/>
+							Giật mình nhìn “dòng sông nhuộm máu” trên phố</h3>
+							<div class="clr"></div>
+						</a>
+						<a href="#" onmouseover="showtip(viewnews[1])" onmouseout="hidetip()">
+						<h3>
+							<img src="pictures/mucangtrai.jpg"/>
+							Mang “Áo ấm cho em” đến với học sinh ở Mù Cang Chải</h3>
+							<div class="clr"></div>
+						</a>
+						<a href="#">
+						<h3>
+							<img src="pictures/traotien.jpg"/>
+							Trao trên 39 triệu đồng đến cậu bé bị viêm tủy, liệt tứ chi có bố bị tâm thần</h3>
+							<div class="clr"></div>
+						</a>
+						<a href="#">
+						<h3>
+							<img src="pictures/timthaythithe.jpg"/>
+							Tìm thấy thi thể phóng viên bị lũ cuốn trong vụ sập cầu Thia</h3>
+							<div class="clr"></div>
+						</a>
+					</div><!--Close news-->
+					
+					<script language="JavaScript">
+							var viewnews = new Array();
+							viewnews[0] = "<table cellspacing=0>";
+							viewnews[0] += "<tr><th>";
+							viewnews[0] += "Giật mình nhìn \“dòng sông nhuộm máu\” trên phố";
+							viewnews[0] += "</th></tr>";
+							viewnews[0] += "<tr><td>";
+							viewnews[0] += "<img src='pictures/dongsongmau.jpg' id='itt'> Nghi lễ hiến tế động vật khiến máu của những con vật bị giết hại hòa cùng nước mưa tạo nên “dòng sông nhuôm máu” chảy lênh láng trên các tuyến phố ở thủ đô của Bangladesh.";
+							viewnews[0] += "</td></tr>";
+							viewnews[0] += "</table>";
+							
+							viewnews[1] = "<table cellspacing=0>";
+							viewnews[1] += "<tr><th>";
+							viewnews[1] += "Mang “Áo ấm cho em” đến với học sinh ở Mù Cang Chải";
+							viewnews[1] += "</th></tr>";
+							viewnews[1] += "<tr><td>";
+							viewnews[1] += "<img src='pictures/mucangtrai.jpg' id='itt'> “Áo ấm cho em” là chương trình từ thiện được công ty du lịch Vietravel tổ chức thường niên và đã đem đến niềm vui cho rất nhiều em nhỏ ở các điểm trường xa xôi. Tiếp nối thành công của những năm trước đó, năm nay, Vietravel Hà Nội đã nỗ lực đưa chương trình phổ biến rộng rãi hơn. Và trường Tiểu học Xéo Dì Hồ, Mù Cang Chải chính là điểm đến đầu tiên cho chuỗi hành trình đầy ý nghĩa này.";
+							viewnews[1] += "</td></tr>";
+							viewnews[1] += "</table>";
+					</script>
+					
+					<div class="titles"> Tin tức xem nhiều</div>
+					<div class="must-view">	
+						<marquee direction="up" scrolldelay="50" scrollamount="2" onmouseover="stop()" onmouseout="start()">
+							<a href="#">
+								<h3>Trao 20 suất học bổng “Về Trường Sơn 2017” đến học sinh nghèo Thanh Hóa</h3>
+							</a>
+							<a href="#">
+								<h3>Những “phi vụ” tái cơ cấu trường Đại học</h3>
+							</a>
+							<a href="#">
+								<h3>Vượt qua Dimitrov, Nadal vào bán kết Thượng Hải Masters.</h3>
+							</a>
+							<a href="#">
+								<h3>Mê mẩn những cánh đồng hoa tam giác mạch đẹp nhất Việt Nam</h3>
+							</a>
+							<a href="#">
+								<h3>7 lý do hút khách Việt đến Myanmar</h3>
+							</a>
+						</marquee>
+					
+				</div><!-- Close rview -->
+				
+				<div class="for-advs">
+					<img src="pictures/sunmax.jpg"/>
+					<img src="pictures/nghiduong.png"/>
+				</div>
+				
+				<div class="clr"> </div>
+				
+			</div>
+			<div class="clr"></div>
+			<div class="bview">
+				
+			</div><!-- Close bview -->
+			</div>
+
+			<div class="rcontent">
+				<div class="videos">
+					
+	<iframe width="240" height="240" src="https://www.youtube.com/embed/jRPjLb3ZjCo?modestbranding=1&autoplay=0" frameborder="0" allowfullscreen>
+	</iframe>
+
+				</div>
+				<div class="face">
+					<!-- Chen facebook -->
+				</div>	
+				<div class="photos">
+					<!-- Chen facebook -->
+				</div>
+				<div class="for-advs">
+					<!-- Chen facebook -->
+					<img src="pictures/sunmax.jpg">
+				</div>
+			</div><!-- Close rcontent -->
+						
+
+			<div class="clr"></div>
+			
+			<div class="menu-bottom">
+				<a href="#">Trang chu</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="#">Gioi thieu</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="#">Tin tuc</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="#">San pham</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="#">Dich vu</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="#">Khac...</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			</div>
+			<div class="footer">
+				<div class="footer-left">
+					<img src="pictures/digital.png"/>
+					<h3>Công ty trách nhiệm hữu hạn nhiều thành viên Trọng Huế</h3>
+					<h4>Nguyễn Trãi, Thanh Xuân, Hà Nội</h4>
+					<h4>0936419200</h4>
+				</div>
+				<div class="footer-right">
+					<h3>This website is designed and developed by Trong Hue</h3>
+					<h4>Copyright 2017</h4>
+					<h4>The most suitable in Chrome
+</h4>
+				</div>
+				<div class="clr"></div>
+			</div><!-- Close footer -->
+		</div>
+	</body>
+</html>

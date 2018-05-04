@@ -1,0 +1,17 @@
+[PropertyInfo]
+assess_id,int,false,false,assess_id,assess_id,true,<default>
+assess_title,String,false,false,assess_title,assess_title,true,<default>
+assess_content,String,false,false,assess_content,assess_content,true,<default>
+assess_product_id,int,false,false,assess_product_id,assess_product_id,true,<default>
+assess_created_date,String,false,false,assess_created_date,assess_created_date,true,<default>
+assess_values,String,false,false,assess_values,assess_values,true,<default>
+assess_author_name,String,false,false,assess_author_name,assess_author_name,true,<default>
+assess_total_values,short,false,false,assess_total_values,assess_total_values,true,<default>
+assess_visited,short,false,false,assess_visited,assess_visited,true,<default>
+assess_enable,boolean,false,false,assess_enable,assess_enable,true,<default>
+assess_delete,boolean,false,false,assess_delete,assess_delete,true,<default>
+[IconNames]
+
+
+
+

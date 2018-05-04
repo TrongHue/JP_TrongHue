@@ -1,0 +1,11 @@
+[PropertyInfo]
+driver,String,false,false, , ,false,<default>
+pool,java.util.Stack,false,false, , ,false,<default>
+url,String,false,false, , ,false,<default>
+username,String,false,false, , ,false,<default>
+userpass,String,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

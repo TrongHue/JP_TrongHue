@@ -1,0 +1,4 @@
+package jsoft;
+
+public interface ShareControl {
+}

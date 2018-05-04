@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+<!--JBuilder Library Definition File-->
+<fullname>Servlet</fullname>
+<class>
+<path>[libs/servlet-2.3.jar]</path>
+</class>
+<required>Tomcat 5.5 Servlet</required>
+<lastmodsaved>1516096176536</lastmodsaved>
+</library>

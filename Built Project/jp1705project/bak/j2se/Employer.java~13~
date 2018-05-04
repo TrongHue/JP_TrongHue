@@ -1,0 +1,60 @@
+package j2se;
+
+/**
+ * <p>Title: jp1705</p>
+ *
+ * <p>Description: </p>
+ *
+ * <p>Copyright: Copyright (c) 2017</p>
+ *
+ * <p>Company: </p>
+ *
+ * @author Nguyen Trong Hue
+ * @version 1.0
+ */
+public class Employer extends Person {
+
+    public static final int NETMAGE = 0;
+    public static final String POSITION = "Khong co gi het";
+
+    private int netmage;
+    private String position;
+    public Employer(){
+        this(Person.FIRSTNAME,Person.LASTNAME,Person.AGE,Person.ADDRESS,Employer.NETMAGE,Employer.POSITION);
+    }
+
+    public Employer(String firstName, String lastName, byte age, Address address, int netMage, String position) {
+        super(firstName, lastName, age, address);
+        this.netmage = netMage;
+        this.position = position;
+    }
+
+    public String toString(){
+        return super.toString()+ " " + this.netMage + " " + this.position;
+    }
+
+
+    public int getNetmage() {
+        return netmage;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setNetmage(int netmage) {
+        this.netmage = netmage;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+
+
+    public static void main(String[] args) {
+        Address addr = new Address("Ha Noi","Cat Que","Ko co");
+        Person em = new Employer("Hue","Nguyen Trong",(byte)21,addr,200000000,"Boss");
+    }
+
+}

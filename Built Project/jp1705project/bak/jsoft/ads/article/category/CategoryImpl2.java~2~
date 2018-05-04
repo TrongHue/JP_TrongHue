@@ -1,0 +1,98 @@
+package jsoft.ads.article.category;
+
+import java.sql.*;
+
+import jsoft.objects.*;
+
+import jsoft.ads.article.section.*;
+
+import jsoft.*;
+
+/**
+ * <p>Title: jp1705</p>
+ *
+ * <p>Description: </p>
+ *
+ * <p>Copyright: Copyright (c) 2017</p>
+ *
+ * <p>Company: </p>
+ *
+ * @author Nguyen Trong Hue
+ * @version 1.0
+ */
+public class CategoryImpl2 extends implements Category {
+    public CategoryImpl2() {
+    }
+
+    /**
+     * addCategory
+     *
+     * @param item CategoryObject
+     * @return boolean
+     * @todo Implement this jsoft.ads.article.category.Category method
+     */
+    public boolean addCategory(CategoryObject item) {
+        return false;
+    }
+
+    /**
+     * delCategory
+     *
+     * @param item CategoryObject
+     * @return boolean
+     * @todo Implement this jsoft.ads.article.category.Category method
+     */
+    public boolean delCategory(CategoryObject item) {
+        return false;
+    }
+
+    /**
+     * editCategory
+     *
+     * @param item CategoryObject
+     * @return boolean
+     * @todo Implement this jsoft.ads.article.category.Category method
+     */
+    public boolean editCategory(CategoryObject item) {
+        return false;
+    }
+
+    /**
+     * getCategory
+     *
+     * @param id short
+     * @return ResultSet
+     * @todo Implement this jsoft.ads.article.category.Category method
+     */
+    public ResultSet getCategory(short id) {
+        return null;
+    }
+
+    /**
+     * getCategory
+     *
+     * @param username String
+     * @param userpass String
+     * @return ResultSet
+     * @todo Implement this jsoft.ads.article.category.Category method
+     */
+    public ResultSet getCategory(String username, String userpass) {
+        return null;
+    }
+
+    /**
+     * getCategorys
+     *
+     * @param similar CategoryObject
+     * @param at int
+     * @param total byte
+     * @return ResultSet
+     * @todo Implement this jsoft.ads.article.category.Category method
+     */
+    public ResultSet getCategorys(CategoryObject similar, int at, byte total) {
+        return null;
+    }
+
+    public static void main(String[] args) {
+    }
+}

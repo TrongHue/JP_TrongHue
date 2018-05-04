@@ -1,0 +1,17 @@
+[PropertyInfo]
+section_created_author_id,short,false,false,section_created_author_id,section_created_author_id,true,<default>
+section_created_date,String,false,false,section_created_date,section_created_date,true,<default>
+section_delete,boolean,false,false,section_delete,section_delete,true,<default>
+section_enable,boolean,false,false,section_enable,section_enable,true,<default>
+section_id,short,false,false,section_id,section_id,true,<default>
+section_language,byte,false,false,section_language,section_language,true,<default>
+section_last_modified,String,false,false,section_last_modified,section_last_modified,true,<default>
+section_manager_id,short,false,false,section_manager_id,section_manager_id,true,<default>
+section_name,String,false,false,section_name,section_name,true,<default>
+section_name_en,String,false,false,section_name_en,section_name_en,true,<default>
+section_notes,String,false,false,section_notes,section_notes,true,<default>
+[IconNames]
+
+
+
+

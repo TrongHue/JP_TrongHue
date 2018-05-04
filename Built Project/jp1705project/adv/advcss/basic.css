@@ -1,0 +1,43 @@
+﻿*{
+    margin: 0px;
+}
+body{
+	background-color:#efffff;
+	color:#222;
+	font-family:arial;
+	font-size:12px;
+	text-align:center; /* IE7-- */
+}
+
+table{
+	font-size:12px;
+	width:100%;
+}
+
+th,td{
+	padding:8px 2px;
+}
+
+th{
+	background: #666;
+	color:#fff;
+	text-transform:uppercase;/* Viết hoa chữ */
+}
+
+.lc{
+	text-align:right;
+	font-weight: bold;
+}
+
+a{
+	text-decoration:none;
+	color: #555;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+.clr{
+    clear: both;
+}

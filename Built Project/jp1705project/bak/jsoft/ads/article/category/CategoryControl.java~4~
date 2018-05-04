@@ -1,0 +1,59 @@
+package jsoft.ads.article.category;
+
+import jsoft.*;
+import jsoft.objects.*;
+
+import java.util.*;
+
+public class CategoryControl {
+
+    private CategoryModel cm;
+
+    public CategoryControl(ConnectionPool cp) {
+        this.cm = new CategoryModel(cp);
+    }
+
+    protected void finalize() throws Throwable {
+        this.cm = null;
+        super.finalize();
+    }
+
+    public ConnectionPool getCP(){
+    return this.cm.getCP();
+}
+
+public void releaseConnection(){
+    this.cm.releaseConnection();
+}
+
+
+    //--------------------------------------------
+    public boolean addUser(CategoryObject item) {
+        return this.cm.addCategory(item);
+    }
+
+    public boolean editUser(CategoryObject item) {
+        return this.cm.editCategory(item);
+    }
+
+    public boolean delUser(CategoryObject item) {
+        return this.cm.delCategory(item);
+    }
+
+    //--------------------------------------------
+
+
+    public String viewCategorys(CategoryObject similar, short page, byte total) {
+        // lay danh sach doi tuong
+        ArrayList<CategoryObject> items = this.cm.getCategoryObjects(similar,page,total);
+        return CategoryLibrary.viewCategorys(items);
+    }
+
+    public static void main(String[] args) {
+        ConnectionPool cp = new ConnectionPoolImpl();
+       CategoryControl cc = new CategoryControl(cp);
+
+       String view = cc.viewCategorys(null,(short)1,(byte)15);
+       System.out.println(view);
+    }
+}
